@@ -8,21 +8,16 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body { background: #f0f4f8; color: #1f1f1f; }
-    /* Scroll-to-top button styling */
-    /* Color change effect when hovering over cards */
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     background-color: #f4f7fb; /* Change background on hover */
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
-  /* Color change effect for each section (e.g., Projects, Skills, etc.) */
   section:hover {
-    background-color: #e9f0f7; /* Light color change when hovering over sections */
+    background-color: #e9f0f7;
     transition: background-color 0.4s ease;
   }
-  
 #scrollToTop {
     position: fixed;
     bottom: 30px;
@@ -53,7 +48,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-  
     header { background: #002244; color: white; padding: 2rem; text-align: center; position: relative; }
     header img {
       width: 150px;
@@ -89,7 +83,6 @@
     <h1>Punugu Jaya Chandra Reddy</h1>
     <p>Aspiring Data Engineer | ML Enthusiast | Certified Cloud & Full Stack Developer</p>
   </header>
-
   <nav>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
@@ -98,7 +91,6 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
-
   <section id="projects">
     <h2>Projects</h2>
     <div class="grid">
@@ -114,7 +106,6 @@
       </div>
     </div>
   </section>
-
   <section id="skills">
     <h2>Technical Skills</h2>
     <div class="grid">
@@ -125,7 +116,6 @@
       <div class="card"><strong>Cloud:</strong><p>AWS (S3, Lambda, Redshift)</p></div>
     </div>
   </section>
-
   <section id="internships">
     <h2>Internships</h2>
     <ul>
@@ -135,7 +125,6 @@
       <li><a href="https://github.com/punugujaya9/Data-Science" target="_blank">Data Science – Altair</a> (Jul–Sep 2024)</li>
     </ul>
   </section>
-
   <section id="certifications">
     <h2>Certifications</h2>
     <ul>
@@ -146,13 +135,11 @@
       <li><a href="#" target="_blank">English Certification – Mepro Pearson LSRW</a></li>
     </ul>
   </section>
-
   <section id="about">
     <h2>About Me</h2>
     <p>I am a passionate B.Tech Computer Science student at Sree Vidyanikethan Engineering College, Tirupati, graduating in 2025. I love building tech solutions with impact—be it in data engineering, AI/ML, or full-stack development. I am always looking for challenges where I can learn, collaborate, and contribute meaningfully using my technical and communication skills.</p>
     <p>With hands-on project experience, multiple virtual internships, and certifications from leading global platforms, I am confident and well-prepared for opportunities in data, cloud, and software roles.</p>
   </section>
-
   <section id="contact">
     <h2>Contact</h2>
     <p><strong>Email:</strong> <a href="mailto:punugujayachandrareddy5@gmail.com">punugujayachandrareddy5@gmail.com</a></p>
@@ -160,13 +147,10 @@
     <p><a href="https://www.linkedin.com/in/punugujayachandrareddy5" target="_blank">LinkedIn</a> |
        <a href="https://github.com/punugujaya9" target="_blank">GitHub</a></p>
   </section>
-
   <footer>
     <p>&copy; 2025 Punugu Jaya Chandra Reddy. Designed for job applications in data engineering, ML, and software development.</p>
   </footer>
   <script>
-    // Smooth scrolling for nav links
-    
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -175,31 +159,22 @@
         });
       });
     });
-  
-    // Scroll to top button
-    
     const scrollBtn = document.createElement('button');
     scrollBtn.textContent = "↑";
     scrollBtn.id = "scrollToTop";
     document.body.appendChild(scrollBtn);
-  
     scrollBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  
     window.addEventListener('scroll', () => {
       scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
-  
-    // Alert for project card click (fun addition)
     document.querySelectorAll('.card a.btn').forEach(btn => {
       btn.addEventListener('click', () => {
         alert("You’re about to view the project on GitHub!");
       });
     });
-
     const sections = document.querySelectorAll('section');
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -209,10 +184,7 @@ const observer = new IntersectionObserver(entries => {
 }, {
   threshold: 0.1
 });
-
 sections.forEach(section => observer.observe(section));
-
   </script>
-  
 </body>
 </html>
