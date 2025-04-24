@@ -8,6 +8,52 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body { background: #f0f4f8; color: #1f1f1f; }
+    /* Scroll-to-top button styling */
+    /* Color change effect when hovering over cards */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    background-color: #f4f7fb; /* Change background on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Color change effect for each section (e.g., Projects, Skills, etc.) */
+  section:hover {
+    background-color: #e9f0f7; /* Light color change when hovering over sections */
+    transition: background-color 0.4s ease;
+  }
+  
+#scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: none;
+    transition: background 0.3s ease;
+  }
+  #scrollToTop:hover {
+    background: #003d80;
+  }
+    .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
     header { background: #002244; color: white; padding: 2rem; text-align: center; position: relative; }
     header img {
       width: 150px;
@@ -118,5 +164,55 @@
   <footer>
     <p>&copy; 2025 Punugu Jaya Chandra Reddy. Designed for job applications in data engineering, ML, and software development.</p>
   </footer>
+  <script>
+    // Smooth scrolling for nav links
+    
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  
+    // Scroll to top button
+    
+    const scrollBtn = document.createElement('button');
+    scrollBtn.textContent = "↑";
+    scrollBtn.id = "scrollToTop";
+    document.body.appendChild(scrollBtn);
+  
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  
+    window.addEventListener('scroll', () => {
+      scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  
+    // Alert for project card click (fun addition)
+    document.querySelectorAll('.card a.btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert("You’re about to view the project on GitHub!");
+      });
+    });
+
+    const sections = document.querySelectorAll('section');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+sections.forEach(section => observer.observe(section));
+
+  </script>
+  
 </body>
 </html>
